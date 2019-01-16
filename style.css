@@ -1,0 +1,22 @@
+body {
+  margin : 0px;
+  overflow: hidden;
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  position: absolute;
+  left: 2vw;
+}
+
+.instruction {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 2vw;
+  top: 6vh;
+  display: none;
+}
+
+a {
+  color: white;
+}
