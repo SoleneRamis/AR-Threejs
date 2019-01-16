@@ -14,7 +14,6 @@
       Put your camera on hiro codePut your camera on hiro code -
       <a href="https://res.cloudinary.com/dn32la6ny/image/upload/v1547545493/HIRO.jpg">Hiro code</a>
     </h3>
-    <p class="instruction">Only available on Safari for IOS</p>  <span class="instruction"></span>
     <a-scene embedded arjs='sourceType: webcam;'>
       <a-marker preset="hiro">
         <a-sphere
@@ -42,42 +41,21 @@
       if(location.protocol!='https:') {
         location.href='https:'+window.location.href.substring(window.location.protocol.length);
       }
-      if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia) {
-        var constraints={
-          audio: false,
-          video: true
-        };
 
-        navigator.mediaDevices.getUserMedia(constraints)
-          .then(function(stream) {
-            var video=document.querySelector('video');
-            video.srcObject=stream;
-            video.onloadedmetadata=function(e) {
-              video.play();
-            };
-          })
-          .catch(function(err) {
-            console.log(err);
-          });
+      var isMobile = {
+        android: function() {
+          return navigator.userAgent.match(/Android/i);
+        },
+        ios: function() {
+          return navigator.userAgent.match(/iPhone/i);
+        },
+        any: function() {
+          return (isMobile.Android() || isMobile.iOS());
+        }
+      };
+      if( isMobile.ios() ) {
+        alert('Only available on Safari for IOS')
       }
-      else {
-        alert("navigator.mediaDevices not supported")
-      }
-
-    var isMobile = {
-      android: function() {
-        return navigator.userAgent.match(/Android/i);
-      },
-      ios: function() {
-        return navigator.userAgent.match(/iPhone/i);
-      },
-      any: function() {
-        return (isMobile.Android() || isMobile.iOS());
-      }
-    };
-    if( isMobile.ios() ) {
-      document.getElementsByClassName("instruction").style.display = "contents";
-    }
     </script>
   </body>
 </html>
