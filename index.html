@@ -53,7 +53,7 @@
           return (isMobile.Android() || isMobile.iOS());
         }
       };
-      if( isMobile.ios() ) {
+      if(isMobile.ios() && window.navigator.vendor == 'Google Inc.') {
         alert('Only available on Safari for IOS')
       }
     </script>
