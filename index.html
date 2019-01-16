@@ -14,6 +14,7 @@
       Put your camera on hiro codePut your camera on hiro code -
       <a href="https://res.cloudinary.com/dn32la6ny/image/upload/v1547545493/HIRO.jpg">Hiro code</a>
     </h3>
+    <h3 class="instruction">Only available on Safari for IOS</h3>
     <a-scene embedded arjs='sourceType: webcam;'>
       <a-marker preset="hiro">
         <a-sphere
@@ -47,14 +48,15 @@
           return navigator.userAgent.match(/Android/i);
         },
         ios: function() {
-          return navigator.userAgent.match(/iPhone/i);
+          return navigator.userAgent.match(/iPhone|iPod|iPad/i);
         },
         any: function() {
           return (isMobile.Android() || isMobile.iOS());
         }
       };
-      if(isMobile.ios() && window.navigator.vendor == 'Google Inc.') {
+      if(isMobile.ios() && window.navigator.userAgent.match('CriOS')) {
         alert('Only available on Safari for IOS')
+        document.getElementsByClassName("instruction").style.visibility = "visible"
       }
     </script>
   </body>

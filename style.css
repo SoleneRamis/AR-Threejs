@@ -9,6 +9,13 @@ body {
   left: 2vw;
 }
 
+.instruction {
+  color: #000;
+  position: absolute;
+  left: 5vw;
+  visibility: hidden;
+}
+
 a {
   color: white;
 }
